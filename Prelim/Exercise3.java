@@ -31,7 +31,7 @@ public class Exercise3 {
 		
 		for(int i = 0; i < noOfStudents; i++) {
 			System.out.printf("\n------------------- Student #%d -------------------\n", i + 1);
-			input.nextLine(); //Clear "\n" after numeric input
+			input.nextLine(); //Clear newline char (\n) after numeric input
 			
 			students[i] = inputValid(input);
 			
@@ -43,7 +43,7 @@ public class Exercise3 {
 			grades[i] = getGrade(averages[i]);
 		}
 		
-		//Sort arrays by average grades using merge sort
+		//Sort by average grades using merge sort
         mergeSort(students, prelims, midterms, finals, averages, grades, 0, noOfStudents - 1);
 		//Display Grade Table
 		displayTable(students, prelims, midterms, finals, averages, grades);
@@ -198,7 +198,12 @@ public class Exercise3 {
         }
     }
     
-	//This method displays the formatted grade table
+    /*
+     * This method displays the formatted grade table (we use printf)
+     * %s for String (also for proper spacing of table)
+     * %c for char
+     * %.2f for double (2 decimals)
+    */
 	private static void displayTable(String[] students, double[] prelims, double[] midterms, double[] finals, double[] averages, char[] grades) {
 		System.out.println("_____________________________________________________________________");
 		System.out.printf("%-25s%-6s%-7s%-7s%-5s%-4s%n", "NAME", "| PRELIM |", " MIDTERM |", " FINAL |", "  AVG  |", " GRADE |");
